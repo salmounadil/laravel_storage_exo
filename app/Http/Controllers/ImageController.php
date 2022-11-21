@@ -19,7 +19,7 @@ class ImageController extends Controller
         $show = Image::find($id);
         return view('pages.show',compact('show'));
     }
-    
+
     public function administration (){
         $images = Image::all();
         return view('pages.administration',compact('images'));
@@ -33,6 +33,12 @@ class ImageController extends Controller
         $store->save();
         return redirect()->route('administration');
         
+    }
+    public function delete($id){
+        $delete = Image::find($id);
+        Storage::delete('public/'. $delete->src);
+        $delete->delete();
+        return redirect()->route('administration');
     }
 
   

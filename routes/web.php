@@ -19,3 +19,4 @@ Route::get('/administration', [ImageController::class,'administration'])->name('
 Route::get('/create', [ImageController::class,'create'])->name('create');
 Route::post('/administration/store', [ImageController::class,'store'])->name('store');
 Route::get('/show/{id}', [ImageController::class,'show'])->name('show');
+Route::delete('/administration/delete/{id}', [ImageController::class,'delete'])->name('delete');

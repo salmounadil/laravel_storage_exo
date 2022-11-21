@@ -10,6 +10,7 @@
                     <th class="border border-primary p-1">Name</th>
                     <th class="border border-primary p-1">Src</th>
                     <th class="border border-primary p-1">Description</th>
+                    <th class="border border-primary p-1"></th>
                 </thead>
                 @foreach ($images as $image )
                   <tr>
@@ -17,6 +18,13 @@
                       <td class="border border-primary p-1">{{ $image->name }}</td>
                       <td class="border border-primary p-1">{{ $image->src }}</td>
                     <td class="border border-primary p-1">{{ $image->description }}</td>
+                    <td class="border border-primary p-1">
+                        <form action="/administration/delete/{{ $image->id }}" enctype="multipart/form-data" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
             </tr>
             @endforeach
             </table>
