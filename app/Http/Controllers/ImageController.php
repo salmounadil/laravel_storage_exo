@@ -19,6 +19,7 @@ class ImageController extends Controller
         $show = Image::find($id);
         return view('pages.show',compact('show'));
     }
+    
     public function administration (){
         $images = Image::all();
         return view('pages.administration',compact('images'));
